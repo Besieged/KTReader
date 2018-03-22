@@ -2,4 +2,7 @@
     <string name="app_name">KTReader</string>
     
     <string name="default_saying">让适合的人走进你的生活吧，让旧梦逝去吧，让不合适的那个离开吧。</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

@@ -9,7 +9,7 @@ import android.widget.Toast;
  * Date: 2018/3/21.
  */
 
-public class CommonUtils {
+public class CommonUtil {
 
     private static Toast mToast;
 
