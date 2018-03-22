@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.besieged.ktreader.utils.CommonUtils;
+import com.besieged.ktreader.utils.CommonUtil;
 
 /**
  * Created with Android Studio
@@ -58,7 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void toast(String msg) {
-        CommonUtils.ShowTips(this, msg); //方法类里的一个方法，封装了Toast,后文会提到.
+        CommonUtil.ShowTips(this, msg); //方法类里的一个方法，封装了Toast,后文会提到.
     }
 
     /*设置透明状态栏*/
