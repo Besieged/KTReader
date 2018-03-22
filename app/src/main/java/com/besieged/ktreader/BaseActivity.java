@@ -27,9 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutRes());
-
         makeStatusBarTransparent();
-
     }
     protected void showProgress(String msg) {
         if (mProgressDialog==null){
@@ -64,6 +62,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     /*设置透明状态栏*/
     private void makeStatusBarTransparent() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+//            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
