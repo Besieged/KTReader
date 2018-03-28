@@ -41,7 +41,7 @@ public class ZhihuAdapter extends RecyclerView.Adapter<ZhihuAdapter.ZhihuViewHol
             @Override
             public void onClick(View v) {
                 if (mItemClickListener != null) {
-                    mItemClickListener.onItemClick(zhihuLatest.id);
+                    mItemClickListener.onItemClick(zhihuLatest.id,zhihuLatest.title);
                     holder.zhihuItem.changeTextview();
                 }
             }
@@ -65,7 +65,7 @@ public class ZhihuAdapter extends RecyclerView.Adapter<ZhihuAdapter.ZhihuViewHol
 
     }
     public interface OnItemClickListener{
-        void onItemClick(int id);
+        void onItemClick(int id,String title);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
