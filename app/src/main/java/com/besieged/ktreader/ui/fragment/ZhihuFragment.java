@@ -1,5 +1,6 @@
 package com.besieged.ktreader.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,8 +15,8 @@ import android.widget.ProgressBar;
 import com.besieged.ktreader.BaseFragment;
 import com.besieged.ktreader.R;
 import com.besieged.ktreader.adapter.ZhihuAdapter;
-import com.besieged.ktreader.app.Constant;
 import com.besieged.ktreader.presenter.impl.ZhihuPresenterImpl;
+import com.besieged.ktreader.ui.activity.ZhihuDetailActivity;
 import com.besieged.ktreader.viewInterface.ZhihuView;
 
 import butterknife.BindView;
@@ -126,8 +127,11 @@ public class ZhihuFragment extends BaseFragment<ZhihuView, ZhihuPresenterImpl> i
 
     private ZhihuAdapter.OnItemClickListener mOnItemClickListener = new ZhihuAdapter.OnItemClickListener() {
         @Override
-        public void onItemClick(int id) {
-            toast(Constant.ZHIHU_BASE_URL + String.valueOf(id));
+        public void onItemClick(int id,String title) {
+            Intent intent = new Intent(getContext(), ZhihuDetailActivity.class);
+            intent.putExtra("ZHIHUID",String.valueOf(id));
+            intent.putExtra("ZHIHUTITLE",title);
+            startActivity(intent);
         }
     };
 

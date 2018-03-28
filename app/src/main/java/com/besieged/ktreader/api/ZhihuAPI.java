@@ -1,5 +1,6 @@
 package com.besieged.ktreader.api;
 
+import com.besieged.ktreader.model.entity.ZhihuDetail;
 import com.besieged.ktreader.model.entity.ZhihuLatest;
 
 import io.reactivex.Observable;
@@ -18,5 +19,8 @@ public interface ZhihuAPI {
 
     @GET("before/{date}")
     Observable<ZhihuLatest> getBefore(@Path("date") String date);
+
+    @GET("{id}")
+    Observable<ZhihuDetail> getDetail(@Path("id") String id);
 
 }
