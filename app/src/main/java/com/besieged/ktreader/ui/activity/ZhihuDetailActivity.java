@@ -69,6 +69,8 @@ public class ZhihuDetailActivity extends MVPBaseActivity<ZhihuDetailView, ZhihuD
         ButterKnife.bind(this);
         initToolBar();
         initView();
+        SwipeBackHelper.getCurrentPage(this)
+                .setSwipeBackEnable(true);
     }
     private void initToolBar(){
         setSupportActionBar(toolbar);

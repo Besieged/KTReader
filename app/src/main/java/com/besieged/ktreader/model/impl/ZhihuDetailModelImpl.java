@@ -25,8 +25,7 @@ public class ZhihuDetailModelImpl implements ZhihuDetailModel {
     public ZhihuDetailModelImpl() {
         mZhihuDetail = new ZhihuDetail();
         mZhihuAPIService = RetrofitManager
-                .getInstence().getRetrofit("http://news-at.zhihu.com/api/4/news/")
-                .create(ZhihuAPI.class);
+                .getInstence().getZhihuAPIService("http://news-at.zhihu.com/api/4/news/");
     }
     public ZhihuDetail getDetail(){
         return mZhihuDetail;
