@@ -35,8 +35,7 @@ public class ZhihuLatestModelImpl implements ZhihuLatestModel {
         mZhihuLatestList = new ArrayList<>();
         mZhihuService = RetrofitManager
                 .getInstence()
-                .getRetrofit("http://news-at.zhihu.com/api/4/news/")
-                .create(ZhihuAPI.class);
+                .getZhihuAPIService("http://news-at.zhihu.com/api/4/news/");
     }
     @Override
     public void loadZhihuLatest(final OnZhihuLatestListener listener) {

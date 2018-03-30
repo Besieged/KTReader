@@ -12,10 +12,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="SplashTheme" parent="AppTheme.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_layers</item>
-        <item name="android:windowFullscreen">true</item>
-    </style>
 
     <style name="SwipeBackTheme" parent="AppTheme.NoActionBar">
         //背景透明，不设滑动关闭时背景就是黑的。
@@ -25,6 +21,10 @@
     </style>
     <style name="MainTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowIsTranslucent">false</item>//就是关掉这个Activity的透明背景
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_layers</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -38,4 +38,7 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="DoubanMovieTextView">
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

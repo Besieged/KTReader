@@ -1,5 +1,7 @@
 package com.besieged.ktreader.utils;
 
+import com.besieged.ktreader.api.DoubanAPI;
+import com.besieged.ktreader.api.ZhihuAPI;
 import com.besieged.ktreader.app.MyApplication;
 
 import java.io.File;
@@ -93,17 +95,30 @@ public class RetrofitManager {
         return retrofitManager;
     }
 
-    private Retrofit retrofit;
+    private ZhihuAPI zhihuAPI;
+    private DoubanAPI doubanAPI;
 
-    public Retrofit getRetrofit(String url){
-        if (retrofit == null){
-            retrofit = new Retrofit.Builder()
+    public ZhihuAPI getZhihuAPIService(String url){
+        if (zhihuAPI == null){
+            zhihuAPI = new Retrofit.Builder()
                     .baseUrl(url)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+                    .build().create(ZhihuAPI.class);
         }
-        return retrofit;
+        return zhihuAPI;
+    }
+
+    public DoubanAPI getDoubanService(String url) {
+        if (doubanAPI == null) {
+            doubanAPI = new Retrofit.Builder()
+                    .baseUrl(url) //必须以‘/’结尾
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用RxJava2作为CallAdapter
+                    .client(client)//如果没有添加,那么retrofit2会自动给我们添加了一个。
+                    .addConverterFactory(GsonConverterFactory.create())//Retrofit2可以帮我们自动解析返回数据，
+                    .build().create(DoubanAPI.class);
+        }
+        return doubanAPI;
     }
 }
