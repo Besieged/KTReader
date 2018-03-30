@@ -76,7 +76,6 @@ public class DoubanBookFragment extends BaseFragment<DoubanBookView, DoubanBookP
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
         unbinder = ButterKnife.bind(this, rootView);
         init();
