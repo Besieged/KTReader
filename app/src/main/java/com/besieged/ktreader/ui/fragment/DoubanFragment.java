@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.besieged.ktreader.R;
 import com.besieged.ktreader.adapter.DoubanAdapter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,10 +49,23 @@ public class DoubanFragment extends Fragment {
         tablayDouban.setupWithViewPager(vpDouban);
         return view;
     }
-
+    public void removeChildFragment() {
+        FragmentManager fragmentManager = getFragmentManager();
+        List<Fragment> fragmentList = fragmentManager.getFragments();
+        for (int i =0;i<fragmentList.size(); i++){
+            if (fragmentList.get(i) instanceof DoubanBookFragment
+                    ||fragmentList.get(i) instanceof DoubanMovieFragment
+                    ||fragmentList.get(i) instanceof DoubanMusicFragment){
+                fragmentManager.beginTransaction()
+                        .remove(fragmentList.get(i))
+                        .commit();
+            }
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        removeChildFragment();
         unbinder.unbind();
     }
 }
